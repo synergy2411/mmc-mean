@@ -77,11 +77,72 @@
 //  - Embed variable within string
 // - Multiline String
 
-var username = "Foo Bar";
+// var username = "Foo Bar";
 
-var greet = `Hello from ${username},
-How are you?
-`;
+// var greet = `Hello from ${username},
+// How are you?
+// `;
 
-console.log(greet);
+// console.log(greet);
 
+
+// Block Scope Variables
+// - let : 
+// - const : 
+
+// function display(arr){
+//     if(arr.length > 2) {
+//         let LOAD = "LOADING..."
+//         console.log(FLASH);             // undefined
+//     }else{
+//         let FLASH = "FLASHING..."
+//     }
+// }
+
+// display([1,2,3,4])
+
+// const USERNAME = "Foo";
+
+// const user = {
+//     firstName : "Foo"
+// }
+
+// user.firstName = "Bar";
+
+// console.log(user);          // ?
+
+// // Primitive Types - String, Boolean, Number, Date 
+// // Reference Types - Object | Array | Functions
+
+
+// user = {
+//     firstName : "Bam"
+// }
+
+
+
+// REST / SPREAD Operators (...)
+
+// function demo(email, ...args){
+//     console.log(args[0]);               // 32
+// }
+
+// demo("test@test.com")
+// demo("test@test.com", 32)
+// demo("test@test.com", 32, true)
+
+
+
+// REDUX
+// let state = {
+//     counter : 0,
+//     todos : []
+// }
+
+// let newState = {
+//     ...state,
+//     result : [],
+//     counter : 11
+// }
+
+// console.log(newState);      // {counter : 0, todos : [], result : []}
