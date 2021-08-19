@@ -11,17 +11,16 @@ const loadNotes= () => {
     }
 }
 
-const saveNotes = (note) => {
-    const allNotes = loadNotes();
-    allNotes.push(note)
-    fs.writeFileSync("./notes.json", JSON.stringify(allNotes))
+const saveNotes = (notes) => {
+    fs.writeFileSync("./notes.json", JSON.stringify(notes))
 }
 
 const addNote = (title, body) => {
     const allNotes = loadNotes();
     const foundNote = allNotes.find(note => note.title === title)
     if(!foundNote){
-        saveNotes({title, body})
+        allNotes.push({title, body})
+        saveNotes(allNotes)
     }
     else{
         console.log(chalk.red("Note Already exist! Try again."))
@@ -48,7 +47,18 @@ const listNote = () => {
     })
 }
 
+const removeNote = title => {
+    const allNotes = loadNotes();
+    const position = allNotes.findIndex(note => note.title === title)
+    if(position >= 0){
+        allNotes.splice(position, 1);
+        saveNotes(allNotes)
+    }else{
+        console.log(chalk.red("Regret! Note not found."))
+    }
+}
+
 
 module.exports = {
-    addNote, readNote, listNote
+    addNote, readNote, listNote, removeNote
 }
