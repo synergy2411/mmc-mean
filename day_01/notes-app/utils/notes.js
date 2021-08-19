@@ -28,7 +28,27 @@ const addNote = (title, body) => {
     }
 }
 
+const readNote = title => {
+    const allNotes = loadNotes();
+    const foundNote = allNotes.find(note => note.title === title)
+    if(!foundNote){
+        console.log(chalk.red("Regret! Note not found."))
+    }else{
+        console.log(chalk.green(`Title : ${foundNote.title}`))
+        console.log(chalk.green(`Body : ${foundNote.body}`))
+    }
+}
+
+const listNote = () => {
+    const allNotes = loadNotes();
+    allNotes.forEach(note => {
+        console.log(chalk.grey("______________________"))
+        console.log(chalk.green(`Title : ${note.title}`))
+        console.log(chalk.green(`Body : ${note.body}`))
+    })
+}
+
 
 module.exports = {
-    addNote
+    addNote, readNote, listNote
 }
