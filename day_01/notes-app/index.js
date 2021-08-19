@@ -1,5 +1,5 @@
-const { string } = require("yargs")
 const yargs = require("yargs")
+const { addNote } = require("./utils/notes")
 
 yargs.command({
     command : "add",
@@ -8,27 +8,27 @@ yargs.command({
         title : {
             description : "title for new note",
             demandOption : true,
-            type : string
+            type : String
         },
         body : {
-            type : string,
+            type : String,
             demandOption : true,
             description : "body for new note"
         }
     },
     handler : (args) => {
-        console.log("ARGUMENTS : ", args)
+        addNote(args.title, args.body)
     }
 })
 
 yargs.parse();
 
-// console.log("[YARGS]", yargs.parse())
-// console.log("[PROCESS]", process.argv)
+// console.log("[YARGS]", yargs.parse()) // {title : "the title"}
+// console.log("[PROCESS]", process.argv)  // ["--title='the title'"]
 // Process built-in variable
 
 
 // node index.js add --title="" --body=""
-// node index.js remove --title=""
 // node index.js read --title=""
+// node index.js remove --title=""
 // node index.js list 
