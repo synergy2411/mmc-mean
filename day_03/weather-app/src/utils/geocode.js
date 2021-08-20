@@ -8,7 +8,8 @@ const getGeocode = (location) => {
       .then((response) => {
         const latitude = response.data.features[0].geometry.coordinates[0];
         const longitude = response.data.features[0].geometry.coordinates[1];
-        resolve({latitude, longitude})
+        const placeName = response.data.features[0].place_name;
+        resolve({latitude, longitude, placeName})
       })
       .catch((err) => reject({err}));
   });

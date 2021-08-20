@@ -1,5 +1,6 @@
 const express = require("express");
 const { getGeocode } = require("./utils/geocode");
+const { getForecast } = require("./utils/forecast")
 
 const app = express();
 
@@ -10,7 +11,14 @@ app.get("/address", (req, res) => {
     if(req.query){
         getGeocode(req.query.location)
             .then( response => {
-                return res.send({response})
+                const {latitude, longitude, placeName} = response;
+                getForecast({latitude, longitude})
+                    .then(resp => {
+                        return res.send({...resp, placeName})
+                    })
+                    .catch(err => {
+                        return res.send({err})
+                    })
             })
             .catch(err => {
                 return res.send({err})
