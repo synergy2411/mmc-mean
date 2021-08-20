@@ -29,3 +29,5 @@
 # to restart the server on every file change
 - npm install nodemon -g
 - nodemon <file_name>
+
+- npm install axios

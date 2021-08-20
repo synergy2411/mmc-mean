@@ -1,4 +1,5 @@
 const express = require("express");
+const { getGeocode } = require("./utils/geocode");
 
 const app = express();
 
@@ -6,8 +7,17 @@ app.use(express.static(__dirname + "/public"))
 
 // GET - http://localhost:9090/address
 app.get("/address", (req, res) => {
-    console.log("Query : ", req.query)
-    res.send({message : "SUCCESS"})
+    if(req.query){
+        getGeocode(req.query.location)
+            .then( response => {
+                return res.send({response})
+            })
+            .catch(err => {
+                return res.send({err})
+            })
+    }else{
+        return res.send({message : "Location not found"})
+    }
 })
 
 
