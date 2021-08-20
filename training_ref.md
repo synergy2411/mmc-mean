@@ -25,3 +25,7 @@
 - npm config get registry
 - npm adduser 
 - npm publish
+
+# to restart the server on every file change
+- npm install nodemon -g
+- nodemon <file_name>
