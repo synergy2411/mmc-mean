@@ -31,3 +31,4 @@
 - nodemon <file_name>
 
 - npm install axios
+- npm i cors
