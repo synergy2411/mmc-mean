@@ -2,15 +2,35 @@ const express = require("express");
 
 const app = express();
 
+app.use(express.json())
+
 const todoCollection = [
     {id : 1, label : "to buy the jeans", status : true},
     {id : 2, label : "to pot the plant", status : false},
     {id : 3, label : "to renew the insurance", status : false},
 ]
 
+app.post("/todos", (req, res) => {
+    console.log("REQUEST BODY : ", req.body)
+    const item = {
+        id : Math.random(),
+        label : req.body.label,
+        status : false
+    }
+    todoCollection.push(item)
+    res.send({item})
+})
+
 app.get("/todos", (req, res) => {
-    console.log("Query Params : ", req.query)
-    res.send({todos : todoCollection})
+    if(req.query && req.query.limit){
+        let result = [];
+        for(let i =0; i < req.query.limit; i++){
+            result.push(todoCollection[i])
+        }
+        return res.send({todos : result})
+    }else{
+        return res.send({todos : todoCollection})
+    }
 })
 
 app.get("/todos/:id", (req, res) => {
