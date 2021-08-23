@@ -1,22 +1,12 @@
-require("./db");
-const TodoModel = require("./controller/model/todo.model");
+const express = require("express")
+const env = require("dotenv")
+// require("./db");
+const TodoRouter = require("./routes/todos.routes")
 
-const createTodo = () => {
-    const todo = new TodoModel({label : "grocery", status : false})
-    todo.save().then(result => {
-        console.log("RESULT - ", result)
-    }).catch(err=> console.log(err))
-}
+env.config()
+const app = express();
+const PORT = process.env.PORT || 9000
 
-const findAllTodo = () => {
-    TodoModel.find()
-        .then(response => {
-            console.log("RESPONSE - ", response)
-        }).catch(err => {
-            console.log(err)
-        })
+app.use("/todos", TodoRouter)
 
-}
-
-// findAllTodo()
-createTodo()
+app.listen(PORT, () => { console.log("Server started at PORT : " + PORT)})
