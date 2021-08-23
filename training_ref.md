@@ -32,3 +32,20 @@
 
 - npm install axios
 - npm i cors
+
+mongod --dbpath="c:/data/db"
+
+DB User  synergy2411
+DB Password : qpecY3JdC6XclgVP
+
+mongodb+srv://synergy2411:qpecY3JdC6XclgVP@cluster0.e9xsq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
+
+- use mmc_db
+- show collections
+- db.users.insert({"username" : "foo", "password" :"foo123"})
+- db.users.find()
+
+
+- npm install mongodb
+- npm install express mongoose
