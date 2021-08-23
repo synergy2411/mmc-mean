@@ -1,10 +1,43 @@
 const express = require("express")
+const TodoModel = require("../controller/model/todo.model");
 
 const router = express.Router()
 
 router.route("")            // http://localhost:9090/todos
-    .get((req, res, next) => {
-        return res.send({message : "Todo Route - GET"})
+    .get(async (req, res, next) => {
+        try{
+            const allTodos = await TodoModel.find()
+            return res.send(allTodos)
+        }catch(err){
+            return res.send(err)
+        }
     })
-    
+    .post(async (req, res) => {
+        if(req.body){
+            const todo = new TodoModel({...req.body})
+            try{
+                const savedTodo = await todo.save()
+                return res.send({...savedTodo._doc})
+            }catch(err){
+                return res.send({error : "unable to create item", err})
+            }
+        }else{
+            return res.send({message : "Request body not found."})
+        }
+    })
+
+router.route("/:id")            //http://localhost:9090/todos/{id}
+    .get(async (req, res) => {
+        const {id} = req.params;
+        try{
+        const foundItem = await TodoModel.findById(id);
+        return res.send({...foundItem._doc})
+        }catch(err){
+            return res.send({message : "Unable to find Item with ID - " + id, err})
+        }
+    })
+
 module.exports = router;
+
+// patch - todos/id
+// delete - todos/id
