@@ -25,10 +25,10 @@ const todoSchema = new Schema({
     }
 })
 
-todoSchema.pre("validate", () => {console.log("Pre - validate")})
-todoSchema.post("validate", () => {console.log("Post - validate")})
-todoSchema.pre("save", () => {console.log("Pre - save")})
-todoSchema.post("save", () => {console.log("Post - save")})
+// todoSchema.pre("validate", () => {console.log("Pre - validate")})
+// todoSchema.post("validate", () => {console.log("Post - validate")})
+// todoSchema.pre("save", () => {console.log("Pre - save")})
+// todoSchema.post("save", () => {console.log("Post - save")})
 
 // Model - Collection in DB
 
