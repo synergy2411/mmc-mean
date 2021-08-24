@@ -19,7 +19,7 @@ router.route("")            // http://localhost:9090/todos
                 const savedTodo = await todo.save()
                 return res.send({...savedTodo._doc})
             }catch(err){
-                return res.send({error : "unable to create item", err})
+                return res.send({...err.errors})
             }
         }else{
             return res.send({message : "Request body not found."})
