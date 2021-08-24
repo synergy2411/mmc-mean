@@ -36,6 +36,28 @@ router.route("/:id")            //http://localhost:9090/todos/{id}
             return res.send({message : "Unable to find Item with ID - " + id, err})
         }
     })
+    .delete(async (req, res) => {
+        const { id } = req.params;
+        try{
+            const deletedItem = await TodoModel.findByIdAndDelete(id)
+            return res.send({...deletedItem._doc});
+        }catch(err){
+            return res.send({message : "Unable to delete for id - " + id, err})
+        }
+    })
+    .patch(async (req, res)=>{
+        const {id} = req.params;
+        if(req.body){
+            try{
+                const updatedItem = await TodoModel.findByIdAndUpdate(id, {...req.body})
+                return res.send({...updatedItem._doc})
+            }catch(err){
+                return res.send({message : "Unable to update for id - " + id, err})
+            }
+        }else{
+            return res.send({message : "Body not found"})
+        }
+    })
 
 module.exports = router;
 
