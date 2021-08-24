@@ -62,3 +62,9 @@ mongodb+srv://synergy2411:qpecY3JdC6XclgVP@cluster0.e9xsq.mongodb.net/myFirstDat
 - Socket Programming
 
 - SPA
+
+# Babel Dependencies -
+- @babel/cli
+- @babel/core
+- @babel/preset-env
+- @babel/node

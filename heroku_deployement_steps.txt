@@ -19,6 +19,7 @@ Download heroku CLI Tool
 > heroku login
 
 > heroku keys:add
+    - generate SSH key before adding (> ssh-keygen)
 
 > heroku create <Project_Name>
 
