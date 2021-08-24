@@ -1,9 +1,10 @@
 const { connect } = require("mongoose")
-const env = require("dotenv");
+// const env = require("dotenv");
 
-env.config();
+// env.config();
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.e9xsq.mongodb.net/mmc_db?retryWrites=true&w=majority`
+// const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.e9xsq.mongodb.net/mmc_db?retryWrites=true&w=majority`
+const uri = `mongodb+srv://synergy2411:qpecY3JdC6XclgVP@cluster0.e9xsq.mongodb.net/mmc_db?retryWrites=true&w=majority`
 
 // const uri = "mongodb://localhost:27017/mmc_db";
 

@@ -1,11 +1,11 @@
 const express = require("express")
-const env = require("dotenv")
+// const env = require("dotenv")
 require("./db");
 const TodoRouter = require("./routes/todos.routes")
 
 const { sign, verify } = require("jsonwebtoken")
 
-env.config()
+// env.config()
 const app = express();
 const PORT = process.env.PORT || 9000
 
@@ -22,7 +22,7 @@ app.post("/login", (req, res) => {
         const { username, password } = req.body
         // Verify the user from DB
         
-        const token = sign({id : 123}, "MY_SUPER_SECRET_KEY")
+        const token = sign({id : 123, role : "admin"}, "MY_SUPER_SECRET_KEY")
         return res.send({token})
 
     }
@@ -40,17 +40,19 @@ const ensureToken = (req, res, next) => {
     }
 }
 
+const verifyUser = async (req, res, next) => {
+    try{
+        const verified = await verify(req.token, "MY_SUPER_SECRET_KEY" )
+        // Verify the ID from the DB
+        next()
+    }catch(err){
+        return res.send({message : "Not authenticated"})
+    }
+}
 // Protecting route/API
 // Route Level Middleware
-app.get("/user/profile", ensureToken, (req, res) => {
-    verify(req.token, "MY_SUPER_SECRET_KEY", (err, decode) => {
-        if(err){
-            console.log(err)
-            return res.send(err)
-        }
-        console.log("DECODE - ", decode)
-        return res.send({message : "SUCCESS"})
-    })
+app.get("/user/profile", ensureToken, verifyUser, (req, res) => {
+    return res.send({message : "showing profile"})
 })
 
 
