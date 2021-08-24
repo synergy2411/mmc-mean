@@ -37,3 +37,5 @@ const TodoModel = model("Todo", todoSchema)
 module.exports = TodoModel;
 
 // Todo - todos
+
+// ES6 Module - import and export - babel configuration

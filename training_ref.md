@@ -50,3 +50,15 @@ mongodb+srv://synergy2411:qpecY3JdC6XclgVP@cluster0.e9xsq.mongodb.net/myFirstDat
 - npm install mongodb
 - npm install express mongoose
 - npm install dotenv -D
+- npm installl jsonwebtoken
+
+
+- JWT
+- Deployment
+- ES6 Module using babel
+- Template Engines
+
+
+- Socket Programming
+
+- SPA
