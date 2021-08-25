@@ -68,3 +68,16 @@ mongodb+srv://synergy2411:qpecY3JdC6XclgVP@cluster0.e9xsq.mongodb.net/myFirstDat
 - @babel/core
 - @babel/preset-env
 - @babel/node
+
+# TypeScript Compiler
+- npm install typescript
+
+# Angular CLI tool
+
+- npm install @angular/cli@10 -g
+- ng --version
+- ng new todo-app
+- cd todo-app
+- npm install
+- npm run start | ng serve
+- npm install bootstrap@4
