@@ -1,10 +1,10 @@
-import { Component } from '@angular/core'
+import { Component, ViewEncapsulation } from '@angular/core'
 
 @Component({
   selector : "app-todo",
-  template : `
-    <h4>Todo coming soon...</h4>
-  `
+  templateUrl : './todo.component.html',
+  styleUrls : [`./todo.component.css`],
+  encapsulation : ViewEncapsulation.Emulated
 })
 export class TodoComponent{
 
