@@ -9,7 +9,10 @@
           (childEvent)="onMoreInfo($event)"></app-user-img>
       </div>
       <div class="col-sm-9 col-md-9">
-        <app-user-info [user]="user"></app-user-info>
+        <app-user-info [user]="user">
+          <header>Header info</header>
+          <footer>Footer info</footer>
+        </app-user-info>
       </div>
     </div>
   </li>

@@ -1,4 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core'
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core'
+import { USER_DATA } from 'src/app/model/mocks';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector : "app-todo",
@@ -6,26 +8,19 @@ import { Component, ViewEncapsulation } from '@angular/core'
   styleUrls : [`./todo.component.css`],
   encapsulation : ViewEncapsulation.Emulated
 })
-export class TodoComponent{
+export class TodoComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy{
 
+  @Input() title : string;
   country : string = 'india';
 
-  user = {
-    firstName : "Bill",
-    lastName : "Gates",
-    dob : new Date("Dec 21, 1965"),
-    income : 50000,
-    isWorking : true,
-    company : "Microsoft",
-    votes : 120,
-    image : "https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5f4ebe0c87612dab4f12a597%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D292%26cropX2%3D3684%26cropY1%3D592%26cropY2%3D3987"
+  user : User;
+
+  // Constructor injection
+  constructor(){
+    // this.user = USER_DATA;
   }
 
-  onChange(value) {
-    this.user.votes = value;
-  }
-
-  onMoreInfo(usr : any): any{
+  onMoreInfo(usr : User): any{
     alert(`Mr. ${usr.lastName} is working with ${usr.company}!`)
   }
 
@@ -33,6 +28,32 @@ export class TodoComponent{
     id : 1,
     label : "insurance",
     status : false
+  }
+
+  ngOnChanges(){
+    console.log("ngOnChanges")
+  }
+  ngOnInit(): void {
+    console.log("ngOnInit")
+    this.user = USER_DATA
+  }
+  ngDoCheck(): void {
+    console.log("ngDoCheck")
+  }
+  ngAfterContentInit(): void {
+    console.log("ngAfterContentInit")
+  }
+  ngAfterContentChecked(): void {
+    console.log("ngAfterContentChecked")
+  }
+  ngAfterViewInit(): void {
+    console.log("ngAfterViewInit")
+  }
+  ngAfterViewChecked(): void {
+    console.log("ngAfterViewChecked")
+  }
+  ngOnDestroy(): void {
+    console.log("ngOnDestroy")
   }
 
 }
