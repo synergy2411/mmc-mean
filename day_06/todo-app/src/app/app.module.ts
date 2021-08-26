@@ -4,12 +4,16 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TodoComponent } from './components/todo/todo.component';
+import { UserInfoComponent } from './components/todo/user-info/user-info.component';
+import { UserImgComponent } from './components/todo/user-img/user-img.component';
 
 
 @NgModule({
   declarations: [     // Component | Directive | Pipe
     AppComponent,
-    TodoComponent
+    TodoComponent,
+    UserInfoComponent,
+    UserImgComponent
   ],
   imports: [          // Modules : built-in | Custom
     BrowserModule,
