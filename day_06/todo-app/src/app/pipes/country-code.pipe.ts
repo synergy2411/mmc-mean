@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'countryCode'
+  name: 'countryCode',
+  pure : true
 })
 export class CountryCodePipe implements PipeTransform {
 
@@ -19,3 +20,6 @@ export class CountryCodePipe implements PipeTransform {
   }
 
 }
+
+// filtering the array
+// sorting the data
