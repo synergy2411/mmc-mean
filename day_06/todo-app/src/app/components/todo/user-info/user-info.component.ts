@@ -10,4 +10,15 @@ export class UserInfoComponent {
 
   @Input() user : User;
 
+  myDynamicClass = {'my-border' : false, 'my-feature' : true}
+
+  myStyle = {
+    borderBottom : '2px red solid'
+  }
+
+  onToggleClasses(){
+    this.myDynamicClass['my-border'] = !this.myDynamicClass['my-border']
+    this.myDynamicClass['my-feature'] = !this.myDynamicClass['my-feature']
+  }
+
 }

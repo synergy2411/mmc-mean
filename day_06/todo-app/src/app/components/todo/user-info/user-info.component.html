@@ -1,7 +1,13 @@
 <ng-content select="header"></ng-content>
 
-<h4>{{ user.firstName }} {{ user.lastName }}</h4>
-<p>Date of Birth : {{ user.dob }}</p>
+<h4 [ngStyle] = "myStyle">{{ user.firstName }} {{ user.lastName }}</h4>
+
+<!-- <p [ngClass]= "['my-border', 'my-feature']">Date of Birth : {{ user.dob }}</p> -->
+<p [ngClass]= "myDynamicClass">Date of Birth : {{ user.dob }}</p>
+
+<button (click) = "onToggleClasses()" class="btn btn-default">Toggle Classes</button>
+
+
 <p *ngIf="user.isWorking">Income : <span [innerText]="user.income"></span></p>
 <p>
   Total Votes : {{ user.votes }}
