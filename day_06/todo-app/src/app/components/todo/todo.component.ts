@@ -13,7 +13,7 @@ export class TodoComponent implements OnChanges, OnInit, DoCheck, AfterContentIn
   @Input() title : string;
   country : string = 'india';
 
-  user : User;
+  users : User[];
 
   // Constructor injection
   constructor(){
@@ -35,7 +35,7 @@ export class TodoComponent implements OnChanges, OnInit, DoCheck, AfterContentIn
   }
   ngOnInit(): void {
     console.log("ngOnInit")
-    this.user = USER_DATA
+    this.users = USER_DATA
   }
   ngDoCheck(): void {
     console.log("ngDoCheck")

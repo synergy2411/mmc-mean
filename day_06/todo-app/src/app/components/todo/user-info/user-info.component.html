@@ -2,7 +2,7 @@
 
 <h4>{{ user.firstName }} {{ user.lastName }}</h4>
 <p>Date of Birth : {{ user.dob }}</p>
-<p>Income : <span [innerText]="user.income"></span></p>
+<p *ngIf="user.isWorking">Income : <span [innerText]="user.income"></span></p>
 <p>
   Total Votes : {{ user.votes }}
 
