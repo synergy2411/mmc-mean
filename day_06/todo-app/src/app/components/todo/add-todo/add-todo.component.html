@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-md-6 offset-sm-2 offset-md-3">
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="text-center">Add Todo Form</h3>
+        </div>
+        <div class="card-body">
+
+          <form [formGroup]="addTodoForm">
+            <!-- Todo Label -->
+            <div class="form-group">
+              <label for="todoLabel">Label : </label>
+              <input type="text"
+                name="todoLabel"
+                class="form-control"
+                [formControl] = "label">
+            </div>
+            <!-- Todo Amount -->
+            <div class="form-group">
+              <label for="todoAmount">Amount : </label>
+              <input type="number"
+                name="todoAMount"
+                class="form-control"
+                [formControl] = "amount">
+            </div>
+            <!-- buttons -->
+            <div class="form-group">
+            <button
+              (click)="onAddItem()"
+              [disabled]="!addTodoForm.valid"
+              class="btn btn-success btn-block">Add New Item</button>
+          </div>
+          <!-- Form State : {{ addTodoForm.valid }} -->
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

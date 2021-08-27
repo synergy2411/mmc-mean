@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TodoComponent } from './components/todo/todo.component';
@@ -8,6 +8,7 @@ import { UserInfoComponent } from './components/todo/user-info/user-info.compone
 import { UserImgComponent } from './components/todo/user-img/user-img.component';
 import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
 import { CountryCodePipe } from './pipes/country-code.pipe';
+import { AddTodoComponent } from './components/todo/add-todo/add-todo.component';
 
 
 @NgModule({
@@ -17,11 +18,13 @@ import { CountryCodePipe } from './pipes/country-code.pipe';
     UserInfoComponent,
     UserImgComponent,
     PipeDemoComponent,
-    CountryCodePipe
+    CountryCodePipe,
+    AddTodoComponent
   ],
   imports: [          // Modules : built-in | Custom
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],      // Services
   bootstrap: [AppComponent]
