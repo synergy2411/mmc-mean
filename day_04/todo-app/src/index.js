@@ -22,11 +22,14 @@ app.use(express.json());
 app.post("/login", (req, res) => {
     if(req.body) { 
         const { username, password } = req.body
+        console.log(username, password);
         // Verify the user from DB
-        
+        if(username && password){
         const token = sign({id : 123, role : "admin"}, "MY_SUPER_SECRET_KEY")
         return res.send({token})
-
+        }else{
+            return res.send({message : "Unable to fetch credentials"})
+        }
     }
 })
 
