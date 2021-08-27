@@ -89,3 +89,6 @@ mongodb+srv://synergy2411:qpecY3JdC6XclgVP@cluster0.e9xsq.mongodb.net/myFirstDat
     - ng g p <pipe_name>
     - ng g m <module_name>
     - ng g s <service_name>
+
+
+synergy2411@outlook.com
