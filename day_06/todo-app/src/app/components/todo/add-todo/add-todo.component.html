@@ -16,6 +16,12 @@
                 name="todoLabel"
                 class="form-control"
                 [formControl] = "label">
+                <div [hidden]="label.valid || label.untouched">
+                  - Some problem with Todo Label.
+                  <div [hidden]="!label.hasError('minlength')">
+                    *Todo Label must have 6 characters at least.
+                  </div>
+                </div>
             </div>
             <!-- Todo Amount -->
             <div class="form-group">
