@@ -23,6 +23,8 @@ const todoSchema = new Schema({
             message : "Validator Fn - Too low value"
         }
     }
+},{
+    versionKey : false
 })
 
 // todoSchema.pre("validate", () => {console.log("Pre - validate")})

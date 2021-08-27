@@ -81,3 +81,11 @@ mongodb+srv://synergy2411:qpecY3JdC6XclgVP@cluster0.e9xsq.mongodb.net/myFirstDat
 - npm install
 - npm run start | ng serve
 - npm install bootstrap@4
+
+# CLI commands
+- ng generate component path/to/component/componentName
+    - ng g c <component_name>
+    - ng g d <directive_name>
+    - ng g p <pipe_name>
+    - ng g m <module_name>
+    - ng g s <service_name>

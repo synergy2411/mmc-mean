@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { TodoComponent } from './components/todo/todo.component';
@@ -24,7 +25,8 @@ import { AddTodoComponent } from './components/todo/add-todo/add-todo.component'
   imports: [          // Modules : built-in | Custom
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],      // Services
   bootstrap: [AppComponent]

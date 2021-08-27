@@ -35,6 +35,7 @@ export class TodoComponent implements OnChanges, OnInit, DoCheck, AfterContentIn
   ngOnInit(): void {
     console.log("ngOnInit")
     this.users = this.dataService.getData()
+    this.dataService.getRestData()
   }
   ngDoCheck(): void {
     console.log("ngDoCheck")
