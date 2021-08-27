@@ -7,6 +7,7 @@
 
   <ul class="list-group">
     <li
+      (dblclick)="onDelete(todo)"
       class="list-group-item"
       *ngFor="let todo of todoCollection">
        {{ todo.label | uppercase }}

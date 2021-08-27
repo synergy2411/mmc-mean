@@ -35,6 +35,13 @@ export class TodoComponent implements OnChanges, OnInit, OnDestroy
   todoCollection : Todo[];
   showCmp: boolean = false;
 
+  onDelete(todo : Todo){
+    this.dataService.deleteItem(todo._id)
+      .subscribe(response => {
+        this.loadRestData();
+      })
+  }
+
   addItem({label, amount}){
     this.dataService.createItem(label, amount)
       .subscribe(response => {

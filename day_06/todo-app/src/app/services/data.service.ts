@@ -22,4 +22,11 @@ export class DataService {
   createItem(label : string, amount : number){
     return this.httpClient.post(`${this.baseURL}/todos`, {label, amount})
   }
+
+  deleteItem(id: string){
+    return this.httpClient.delete(`${this.baseURL}/todos/${id}`)
+  }
+
+  // implement PATCH operation
+
 }
