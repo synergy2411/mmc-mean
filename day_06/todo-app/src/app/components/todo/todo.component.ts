@@ -1,6 +1,6 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core'
-import { USER_DATA } from 'src/app/model/mocks';
 import { User } from 'src/app/model/user';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector : "app-todo",
@@ -16,8 +16,7 @@ export class TodoComponent implements OnChanges, OnInit, DoCheck, AfterContentIn
   users : User[];
 
   // Constructor injection
-  constructor(){
-    // this.user = USER_DATA;
+  constructor(private dataService : DataService){
   }
 
   onMoreInfo(usr : User): any{
@@ -35,7 +34,7 @@ export class TodoComponent implements OnChanges, OnInit, DoCheck, AfterContentIn
   }
   ngOnInit(): void {
     console.log("ngOnInit")
-    this.users = USER_DATA
+    this.users = this.dataService.getData()
   }
   ngDoCheck(): void {
     console.log("ngDoCheck")
