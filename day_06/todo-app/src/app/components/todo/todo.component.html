@@ -1,6 +1,24 @@
 
 <div class="container">
 
+  <button class="btn btn-proimary" (click)="showCmp = !showCmp">
+    {{ showCmp ? 'Hide Form' : 'Show Form'}}
+  </button>
+
+  <ul class="list-group">
+    <li
+      class="list-group-item"
+      *ngFor="let todo of todoCollection">
+       {{ todo.label | uppercase }}
+      <span class="badge badge-primary float-right">
+        {{todo.status}}
+      </span>
+    </li>
+  </ul>
+
+  <app-add-todo *ngIf="showCmp" (onAddNew)="addItem($event)"></app-add-todo>
+
+<!--
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let user of users">
     <div class="row">
@@ -10,13 +28,13 @@
       </div>
       <div class="col-sm-9 col-md-9">
         <app-user-info [user]="user">
-          <!-- <header>Header info</header>
-          <footer>Footer info</footer> -->
+          <header>Header info</header>
+          <footer>Footer info</footer>
         </app-user-info>
       </div>
     </div>
   </li>
-</ul>
+</ul> -->
 
 <!-- <div [ngSwitch]="">
   <div *ngSwitchCase=""></div>

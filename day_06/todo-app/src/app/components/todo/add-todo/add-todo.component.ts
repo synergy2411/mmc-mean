@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { DataService } from 'src/app/services/data.service';
+
 
 @Component({
   selector: 'app-add-todo',
@@ -17,8 +19,11 @@ export class AddTodoComponent implements OnInit {
   ])
 
   addTodoForm : FormGroup;
+  @Output() onAddNew = new EventEmitter<{label : string; amount : number}>()
 
-  constructor(private fb : FormBuilder) {
+  constructor(
+      private fb : FormBuilder
+      ) {
     this.addTodoForm = this.fb.group({
       label : this.label,
       amount : this.amount
@@ -26,7 +31,11 @@ export class AddTodoComponent implements OnInit {
   }
 
   onAddItem(){
-    console.log(this.addTodoForm)
+   this.onAddNew.emit({
+     label : this.addTodoForm.value.label,
+     amount : this.addTodoForm.value.amount
+    })
+    this.addTodoForm.reset();
   }
 
   ngOnInit(): void {

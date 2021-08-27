@@ -16,9 +16,10 @@ export class DataService {
   }
 
   getRestData(){
-    this.httpClient.get(`${this.baseURL}/todos`)
-      .subscribe(response => {
-        console.log("RESPONSE FROM REST API - ", response)
-      })
+    return this.httpClient.get(`${this.baseURL}/todos`)
+  }
+
+  createItem(label : string, amount : number){
+    return this.httpClient.post(`${this.baseURL}/todos`, {label, amount})
   }
 }
